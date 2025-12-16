@@ -1,8 +1,8 @@
 services:
   cicd-yolo-api:
     build: 
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: docker/dev.Dockerfile
     container_name: cicd-yolo-api
     ports:
       - "8001:8001"
