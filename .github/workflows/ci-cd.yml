@@ -35,6 +35,7 @@ jobs:
   
   build-and-push:
     name: Build & push docker image
+    runs-on: ubuntu-latest
     needs: quality-check
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
@@ -63,7 +64,7 @@ jobs:
           images: ${{ env.REGISTRY  }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw, value=latest, enable={{is_default_branch}}
-            type=ref, envent=branch
+            type=ref, event=branch
             type=sha, prefix=sha-
 
       - name: Build and push
